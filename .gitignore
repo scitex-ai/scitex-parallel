@@ -13,6 +13,8 @@ env/
 .env
 .tox/
 .pytest_cache/
+.coverage
+.coverage.*
 .mypy_cache/
 .ruff_cache/
 *.swp
