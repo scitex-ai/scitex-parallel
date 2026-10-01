@@ -13,6 +13,8 @@ env/
 .env
 .tox/
 .pytest_cache/
+.coverage
+.coverage.*
 .mypy_cache/
 .ruff_cache/
 *.swp
@@ -33,3 +35,10 @@ env/
 # src/<pkg>/_sphinx_html/ is intentionally tracked — scitex-cloud serves
 # docs from it (general/04_docs_02_sphinx.md "do NOT gitignore _sphinx_html").
 docs/sphinx/_build/
+
+# Agent-local direnv config (per-agent IDs, not project state)
+.envrc
+
+# Worktree checkouts (worktree doctrine) and archived supersessions
+.worktrees/
+.old/
