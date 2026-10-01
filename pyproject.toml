@@ -28,9 +28,11 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-# Bare install is the full package; [all] is provided for ecosystem-wide
-# consistency so `pip install scitex-*[all]` works uniformly.
-all = []
+# Bare install is the full package; [all] resolves dev+docs for
+# ecosystem-wide `pip install scitex-*[all]` uniformity (PS-214/215).
+all = [
+    "scitex-parallel[dev,docs]",
+]
 
 dev = [
     "pytest>=7.0",
@@ -70,6 +72,10 @@ concurrency = ["multiprocessing", "thread"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+markers = [
+    "smoke: fast subprocess happy-path tests (<60s, runs on every PR)",
+    "e2e: end-to-end workflows against real subsystems (gate with RUN_E2E=1)",
+]
 
 [tool.ruff]
 line-length = 88
